@@ -1,5 +1,5 @@
 {<img src="https://codeclimate.com/repos/554a7e1de30ba04b3500b447/badges/3eafc7397df0d2250afb/gpa.svg" />}[https://codeclimate.com/repos/554a7e1de30ba04b3500b447/feed]
-{<img src="https://codeclimate.com/repos/554a7e1de30ba04b3500b447/badges/3eafc7397df0d2250afb/gpa.svg" />}[https://codeclimate.com/repos/554a7e1de30ba04b3500b447/feed]
+{<img src="https://codeclimate.com/repos/554a7e1de30ba04b3500b447/badges/3eafc7397df0d2250afb/coverage.svg" />}[https://codeclimate.com/repos/554a7e1de30ba04b3500b447/coverage]
 {<img src="https://travis-ci.org/engwebUM/projecto-g4.svg?branch=readme" alt="Build Status" />}[https://travis-ci.org/engwebUM/projecto-g4]
 == Project Group 4 - Piggy Bank @ RubyConf
-{<img src="http://rubyconf.pt/img/logo-small.png" />}
+http://rubyconf.pt/img/logo-small.png
