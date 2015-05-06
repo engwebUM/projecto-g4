@@ -4,7 +4,15 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :production, :staging do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+group :development do
+  gem 'sqlite3'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -27,9 +35,10 @@ gem 'rubocop', require: false
 gem 'rspec-rails'
 
 gem "codeclimate-test-reporter", group: :test
-
+gem 'coffee-script-source', '~> 1.8.0'
 gem 'tzinfo-data', platforms: [:x64_mingw, :mingw, :mswin]
 gem 'progressbar'
+gem 'bootstrap-sass', '~> 3.3.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
