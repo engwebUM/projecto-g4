@@ -34,6 +34,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rubocop', require: false
 gem 'rspec-rails'
 
+# Autentication
+gem 'devise'
+
 gem "codeclimate-test-reporter", group: :test
 gem 'coffee-script-source', '~> 1.8.0'
 gem 'tzinfo-data', platforms: [:x64_mingw, :mingw, :mswin]
