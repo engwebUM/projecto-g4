@@ -1,0 +1,6 @@
+<% @categories.each do |c| %>
+  <tr>
+    <td><%= c.name %></td>
+    <td><%= link_to 'Destroy', c, method: :delete %></td>
+  </tr>
+<% end %>

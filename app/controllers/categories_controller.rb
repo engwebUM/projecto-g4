@@ -10,21 +10,16 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     if @category.save
       flash[:notice] = 'Category was successfully created'
-      redirect_to categories_url
     else
-      redirect_to action: :index
       flash[:error] = 'Please try again!'
     end
+    redirect_to categories_url
   end
 
   def destroy
-    if @category.destroy
-      flash[:notice] = 'Category was successfully destroyed'
-      redirect_to categories_url
-    else
-      redirect_to :back
-      flash[:error] = 'Please try again!'
-    end
+    @category.destroy
+    flash[:notice] = 'Category was successfully destroyed'
+    redirect_to categories_url
   end
 
   private
