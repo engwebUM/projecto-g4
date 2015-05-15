@@ -25,7 +25,7 @@ class ExpensesController < ApplicationController
       redirect_to @expense
     else
       redirect_to :new
-      flash[:error] = 'Please try again!'
+      msg_error
     end
   end
 
@@ -35,7 +35,7 @@ class ExpensesController < ApplicationController
       flash[:notice] = 'Expense was successfully updated'
     else
       render :edit
-      flash[:error] = 'Please try again!'
+      msg_error
     end
   end
 
@@ -45,11 +45,15 @@ class ExpensesController < ApplicationController
       redirect_to expenses_url
     else
       redirect_to :back
-      flash[:error] = 'Please try again!'
+      msg_error
     end
   end
 
   private
+
+  def msg_error
+    flash[:error] = 'Please try again!'
+  end
 
   def set_expense
     @expense = Expense.find(params[:id])
