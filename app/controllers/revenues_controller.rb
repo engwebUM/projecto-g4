@@ -25,7 +25,7 @@ class RevenuesController < ApplicationController
       redirect_to @revenue
     else
       redirect_to :new
-      flash[:error] = 'Please try again!'
+      msg_error
     end
   end
 
@@ -35,7 +35,7 @@ class RevenuesController < ApplicationController
       flash[:notice] = 'Revenue was successfully updated'
     else
       render :edit
-      flash[:error] = 'Please try again!'
+      msg_error
     end
   end
 
@@ -43,9 +43,17 @@ class RevenuesController < ApplicationController
     @revenue.destroy
     flash[:notice] = 'Revenue was successfully destroyed'
     redirect_to revenues_url
+    else
+      redirect_to :back
+      msg_error
+    end
   end
 
   private
+
+  def msg_error
+    flash[:error] = 'Please try again!'
+  end
 
   def set_revenue
     @revenue = Revenue.find(params[:id])
