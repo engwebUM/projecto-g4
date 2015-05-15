@@ -1,18 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<%= form_for(@category) do |f| %>
-<p>
-  <%= f.label :name, 'New Category' %>
-  <%= f.text_field :name %>
-  <%= f.submit 'Add Category' %>
-</p>
+<%= render partial: 'form' %>
 
-<% end %>
-
-
+<% if @categories.count > 0 %>
 <h1>Listing Themes</h1>
 
-<table>
+<table class='table'>
   <thead>
     <tr>
       <th>Name</th>
@@ -24,3 +17,4 @@
     <%= render partial: @category %>
   </tbody>
 </table>
+<% end %>
