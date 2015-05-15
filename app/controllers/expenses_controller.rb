@@ -10,6 +10,7 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+    @categories = Category.all
   end
 
   def edit
@@ -17,7 +18,8 @@ class ExpensesController < ApplicationController
 
   def create
     @expense = Expense.new(expense_params)
-    if @expense.create
+    @expense.user_id = current_user.id
+    if @expense.save
       flash[:notice] = 'Expense was successfully created'
       redirect_to @expense
     else
