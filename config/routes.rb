@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :expenses
-
+  resources :revenues
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
