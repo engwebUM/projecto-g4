@@ -40,9 +40,9 @@ class RevenuesController < ApplicationController
   end
 
   def destroy
-    @revenue.destroy
-    flash[:notice] = 'Revenue was successfully destroyed'
-    redirect_to revenues_url
+    if @revenue.destroy
+      flash[:notice] = 'Revenue was successfully destroyed'
+      redirect_to revenues_url
     else
       redirect_to :back
       msg_error
