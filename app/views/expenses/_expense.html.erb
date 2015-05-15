@@ -1,0 +1,25 @@
+<% @expenses.each do |e| %>
+  <tr>
+    <td>
+      <%= e.id %>
+    </td>
+    <td>
+      <%= e.date %>
+    </td>
+    <td>
+      <%= User.find(e.user_id).email %>
+    </td>
+    <td>
+      <%= e.amount %>
+    </td>
+    <td>
+      <%= link_to 'Show', e %>
+    </td>
+    <td>
+      <%= link_to 'Edit', edit_expense_path(e) %>
+    </td>
+    <td>
+      <%= link_to 'Destroy', e, method: :delete %>
+    </td>
+  </tr>
+<% end %>
