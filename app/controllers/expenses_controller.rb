@@ -3,33 +3,19 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = Expense.all
-    @expenses_user = @expenses.select("user_id", "amount")
 
-    @expenses_user_total = []
-    @expenses_user.each do |e|
-      if (!@expenses_user_total.find(e.user_id))
-        user = e.user_id
-        total = 0
-        expenses_user.each do |ee|
-          total = total + ee.amount
-        end
-        @expenses_user_total << [user, total]
-      end
+    @name_exp = Expense.pluck("user_id", "amount")
+    @name_exp.each do |ex|
+      ex[0] = User.find(ex[0]).email
     end
 
-    @total_expenses = @expenses_user_total.sum(:total)
-
-    @expenses_user_total.each do |et|
-      et.total = et.total.to_f / @total_expenses
-    end
-    
 
     @chart = LazyHighCharts::HighChart.new('pie') do |f|
       f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
       series = {
                :type=> 'pie',
                :name=> 'Users expenses',
-               :data=>  @expenses_user
+               :data=>  @name_exp.each  
       }
       f.series(series)
       f.options[:title][:text] = "Expenses by User"
