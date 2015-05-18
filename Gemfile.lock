@@ -77,6 +77,7 @@ GEM
     execjs (2.4.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
+    hash-deep-merge (0.1.1)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.12)
@@ -89,6 +90,9 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.2)
+    lazy_high_charts (1.5.4)
+      bundler (>= 1.0)
+      hash-deep-merge
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -233,6 +237,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
+  lazy_high_charts
   paperclip
   pg
   rails (= 4.2.0)
