@@ -1,0 +1,19 @@
+<% @expenses.each do |e| %>
+  <tr>
+    <td>
+      <%= e.id %>
+    </td>
+    <td>
+      <%= e.date %>
+    </td>
+    <td>
+      <%= e.user.email %>
+    </td>
+    <td>
+      <%= e.amount %>
+    </td>
+    <td>
+      <%= link_to 'Show', e %>
+    </td>
+  </tr>
+<% end %>
