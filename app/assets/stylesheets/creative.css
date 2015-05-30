@@ -581,3 +581,9 @@ label{
 	color: #666;
 }
 /* END LOGIN CSS*/
+
+.reset_pass_button{
+	width: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
