@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Piggy Bank</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+		<title>Piggy Bank</title>
+  
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
 </head>
+		
+<!--		
 <body>
         <% if user_signed_in? %>
           <%= render partial: 'shared/navbar' %>
@@ -23,4 +31,59 @@
 </div>
 
 </body>
+-->
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand page-scroll" href="#page-top">Piggy Bank</a>-->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#Categories">Categories</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#Expenses">Expenses</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#Revenues">Revenues</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+								<h1>Piggy Bank</h1>				
+								<img src="<%= image_url "piggybankLogo.png" %>" class="img-responsive logo_home">
+								<hr>
+								<h3>Who would have thought that a piggy bank could make your work so easy.</h3>
+								<br>
+								<a href="login.html" class="btn btn-primary btn-xl page-scroll">Login</a>
+            </div>
+        </div>
+    </header>
+
+</body>		
+		
+		
 </html>
