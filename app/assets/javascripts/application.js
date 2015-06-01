@@ -16,7 +16,6 @@
 //= require jquery-ui
 //= require_tree .
 
-= require bootstrap.min
 = require jquery.easing.min
 = require jquery.fittext
 = require wow.min
