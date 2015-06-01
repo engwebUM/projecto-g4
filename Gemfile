@@ -47,6 +47,7 @@ gem 'tzinfo-data', platforms: [:x64_mingw, :mingw, :mswin]
 gem 'ruby-progressbar', '~> 1.7.5'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'paperclip'
+gem 'lazy_high_charts'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

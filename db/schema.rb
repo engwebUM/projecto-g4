@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150515205321) do
   end
 
   create_table "expenses", force: :cascade do |t|
+    t.integer  "user_id"
     t.date     "date"
     t.integer  "category_id"
     t.string   "description"
@@ -30,7 +31,6 @@ ActiveRecord::Schema.define(version: 20150515205321) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
-    t.integer  "user_id"
   end
 
   create_table "revenues", force: :cascade do |t|
