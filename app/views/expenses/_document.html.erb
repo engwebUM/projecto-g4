@@ -1,0 +1,9 @@
+<% if @expense.document.content_type == 'image/jpeg' || @expense.document.content_type == 'image/png' %>
+  <p class='text-center'>
+    <%= image_tag @expense.document.url, height: '132', width: '132' %>
+  </p>
+<% elsif @expense.document.content_type == 'application/pdf' %>
+    <p class='text-center'>
+      <iframe src=<%= @expense.document.url %> width="300px" height="400" ></iframe>
+    </p>
+<% end %>
