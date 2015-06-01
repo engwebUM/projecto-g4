@@ -1,20 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="header-content">
+		<p id="notice"><%= notice %></p>
 
 <%= render partial: 'form' %>
 
 <% if @categories.count > 0 %>
 <h1>Listing Themes</h1>
+	<table class='table'>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= render partial: @category %>
-  </tbody>
-</table>
+		<tbody>
+			<%= render partial: @category %>
+		</tbody>
+	</table>
 <% end %>
+
+</div>
+
+
+
+
