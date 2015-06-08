@@ -4,7 +4,7 @@ class RevenuesController < ApplicationController
   def index
     @revenues = Revenue.all
   
-    @name_rev = Expense.pluck("user_id", "amount")
+    @name_rev = Revenue.pluck("user_id", "amount")
     @name_rev.each do |r|
       r[0] = User.find(r[0]).email
     end
@@ -14,11 +14,11 @@ class RevenuesController < ApplicationController
       f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
       series = {
                :type=> 'pie',
-               :name=> 'Users expenses',
+               :name=> 'Users revenue',
                :data=>  @name_rev.each  
       }
       f.series(series)
-      f.options[:title][:text] = "Expenses by User"
+      f.options[:title][:text] = "Revenue by User"
       f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
       f.plot_options(:pie=>{
         :allowPointSelect=>true, 
