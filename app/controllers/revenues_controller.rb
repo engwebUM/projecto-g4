@@ -9,11 +9,11 @@ class RevenuesController < ApplicationController
     end
 
     @chart = LazyHighCharts::HighChart.new('pie') do |f|
-      f.chart ({ defaultSeriesType: 'pie', margin: [50, 200, 60, 170] })
+      f.chart defaultSeriesType: 'pie', margin: [50, 200, 60, 170]
       series = {
-                type: 'pie',
-                name: 'Users revenue',
-                data: @name_rev.each
+        type: 'pie',
+        name: 'Users revenue',
+        data: @name_rev.each
       }
       f.series(series)
       f.options[:title][:text] = 'Revenue by User'
