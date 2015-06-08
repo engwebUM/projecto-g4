@@ -1,37 +1,11 @@
 class RevenuesController < ApplicationController
+  include RevenuesHelper
   before_action :set_revenue, only: [:show, :edit, :update, :destroy]
 
   def index
     @revenues = Revenue.all
     @name_rev = Revenue.pluck('user_id', 'amount')
-    @name_rev.each do |r|
-      r[0] = User.find(r[0]).email
-    end
-
-    @chart = LazyHighCharts::HighChart.new('pie') do |f|
-      f.chart defaultSeriesType: 'pie', margin: [50, 200, 60, 170]
-      series = {
-        type: 'pie',
-        name: 'Users revenue',
-        data: @name_rev.each
-      }
-      f.series(series)
-      f.options[:title][:text] = 'Revenue by User'
-      f.legend(layout: 'vertical', style: { left: 'auto', bottom: 'auto', right: '50px', top: '100px' })
-      f.plot_options(
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: true,
-            color: 'black',
-            style: {
-              font: '13px Trebuchet MS, Verdana, sans-serif'
-            }
-          }
-        }
-      )
-    end
+    @chart = pie_chart(@name_rev)
   end
 
   def show
