@@ -4,8 +4,7 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = Expense.all
-    @name_exp = Expense.pluck('user_id', 'amount')
-    @chart = pie_chart(@name_exp)
+    @chart = expenses_pie_chart(@expenses)
   end
 
   def show

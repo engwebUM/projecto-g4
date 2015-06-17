@@ -1,9 +1,13 @@
 module RevenuesHelper
-  def  pie_chart(name_rev)
+  def  revenues_pie_chart revenues
+    name_rev = revenues.pluck('user_id', 'amount')
     name_rev.each do |r|
       r[0] = User.find(r[0]).email
     end
+    draw(name_rev)
+  end
 
+  def draw name_rev
     chart = LazyHighCharts::HighChart.new('pie') do |f|
       f.chart defaultSeriesType: 'pie', margin: [50, 200, 60, 170]
       series = {
