@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'stats/index'
+
   get 'sessions/destroy'
 
   get 'home/index'
