@@ -4,6 +4,6 @@ class StatsController < ApplicationController
   def index
     @expenses = Expense.all
     @revenues = Revenue.all
-    @chart = create_charts(@expenses,@revenues)
+    create_charts(@expenses,@revenues)
   end
 end
