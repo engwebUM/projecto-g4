@@ -21,4 +21,4 @@
 //= require highcharts/highstock
 //= require highcharts/highcharts                                                           
 //= require highcharts/highcharts-more 
-
+//= require smart_listing

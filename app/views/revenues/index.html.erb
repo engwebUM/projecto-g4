@@ -1,31 +1,33 @@
-<div class="header-content">
-<%= link_to 'New Revenue', new_revenue_path %>
+<section>
+  <div class="container">
+    <%= link_to 'New Revenue', new_revenue_path, :class => "form-control btn btn-login reset_pass_button" %>
 
-<p id='notice'><%= notice %></p>
+    <p id='notice'><%= notice %></p>
 
-<% if (@revenues.count >0 ) %>
-<h1>Listing Revenues</h1>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Date</th>
-      <th>User</th>
-      <th>Amount</th>
-      <th colspan='1'></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render partial: 'revenue' %>
-  </tbody>
-</table>
-
-
-  <%= high_chart("my_id4", @chart) do |c| %>
-      <%= raw "options.tooltip.formatter = function() {return '<b> user: '+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-      <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-  <% end %>
+    <% if (@revenues.count >0 ) %>
+    <h1>Revenues</h1>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>User</th>
+          <th>Amount</th>
+          <th colspan='1'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'revenue' %>
+      </tbody>
+    </table>
 
 
-<% end %>
-</div>
+      <%= high_chart("my_id4", @chart) do |c| %>
+          <%= raw "options.tooltip.formatter = function() {return '<b> user: '+ this.point.name +'</b>: '+ this.y +' %';}"  %>
+          <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
+      <% end %>
+
+
+    <% end %>
+  </div>
+</section>

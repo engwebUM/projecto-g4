@@ -6,6 +6,7 @@ body {
 
 body {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    background-color: #c3c3c3;
 }
 
 hr {
@@ -70,10 +71,16 @@ aside {
     padding: 0;
 }
 
+.navbar .navbar-default .navbar-fixed-top{
+    background-color: #353535;
+}
+
+
 .navbar-default {
     border-color: rgba(34,34,34,.05);
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-    background-color: #fff;
+    background-color: #353535;
+    background-image: none;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -106,19 +113,23 @@ aside {
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #f05f40!important;
-    background-color: transparent;
+    color: #f05f40 !important;
+    background-color: #353535;
 }
 
 .navbar-default .nav > li.active>a:hover,
 .navbar-default .nav>li.active>a:focus:hover {
-    background-color: transparent;
+    background-color: #353535;
+}
+
+.navbar .navbar-collapse{
+    background-color: #353535;
 }
 
 @media(min-width:768px) {
     .navbar-default {
         border-color: rgba(255,255,255,.3);
-        background-color: transparent;
+        background-color: #353535;
     }
 
     .navbar-default .navbar-header .navbar-brand {
@@ -204,6 +215,7 @@ header .header-content .header-content-inner p {
     font-weight: 300;
     color: rgba(255,255,255,.7);
 }
+
 
 @media(min-width:768px) {
     header {
@@ -590,4 +602,8 @@ label{
 
 .error_messages{
 	color: red;
+}
+
+td{
+    text-align: left;
 }

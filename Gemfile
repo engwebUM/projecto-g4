@@ -34,6 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rubocop', require: false
 
+gem "smart_listing"
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'quiet_assets'
