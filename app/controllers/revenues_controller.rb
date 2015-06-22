@@ -4,7 +4,6 @@ class RevenuesController < ApplicationController
 
   def index
     @revenues = Revenue.all
-    @chart = revenues_pie_chart(@revenues)
   end
 
   def show

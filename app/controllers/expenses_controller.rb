@@ -4,7 +4,6 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = Expense.all
-    @chart = expenses_pie_chart(@expenses)
   end
 
   def show
