@@ -1,37 +1,12 @@
 class RevenuesController < ApplicationController
+  include SmartListing::Helper::ControllerExtensions
+  helper  SmartListing::Helper
   before_action :set_revenue, only: [:show, :edit, :update, :destroy]
 
   def index
-    @revenues = Revenue.all
-  
-    @name_rev = Expense.pluck("user_id", "amount")
-    @name_rev.each do |r|
-      r[0] = User.find(r[0]).email
-    end
-
-
-    @chart = LazyHighCharts::HighChart.new('pie') do |f|
-      f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
-      series = {
-               :type=> 'pie',
-               :name=> 'Users expenses',
-               :data=>  @name_rev.each  
-      }
-      f.series(series)
-      f.options[:title][:text] = "Expenses by User"
-      f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-      f.plot_options(:pie=>{
-        :allowPointSelect=>true, 
-        :cursor=>"pointer" , 
-        :dataLabels=>{
-          :enabled=>true,
-          :color=>"black",
-          :style=>{
-            :font=>"13px Trebuchet MS, Verdana, sans-serif"
-          }
-        }
-      })
-    end
+    revenues_scope = Revenue.all
+    revenues_scope = revenues_scope.joinuser(params[:filter]) if params[:filter]
+    @revenues = smart_listing_create :revenues, revenues_scope, partial: "revenues/revenue", page_sizes: [5, 7, 13, 26]
   end
 
 

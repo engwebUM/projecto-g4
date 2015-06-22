@@ -4,30 +4,13 @@
 
     <p id='notice'><%= notice %></p>
 
-    <% if (@revenues.count >0 ) %>
-    <h1>Revenues</h1>
-    <table class='table'>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Date</th>
-          <th>User</th>
-          <th>Amount</th>
-          <th colspan='1'></th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render partial: 'revenue' %>
-      </tbody>
-    </table>
-
-
-      <%= high_chart("my_id4", @chart) do |c| %>
-          <%= raw "options.tooltip.formatter = function() {return '<b> user: '+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-          <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-      <% end %>
-
-
+    <h1><strong>Revenues</strong></h1>
+    <%= smart_listing_controls_for(:revenues, {class: "form-inline text-right"}) do %>
+      <div class="form-group filter input-append">
+        <%= text_field_tag :filter, '', class: "search form-control", placeholder: "Search by Email...", autocomplete: :off %>
+      </div>
     <% end %>
+    <br>
+    <%= smart_listing_render :revenues %>
   </div>
 </section>
