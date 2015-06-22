@@ -32,8 +32,6 @@
 		        <div id="categorieExpenses" class="tab-pane fade">
 		        	<div class="container">
 				    	<%= high_chart("my_id3", @chart3) do |c| %>
-				      	<%= raw "options.tooltip.formatter = function() {return '<b> user: '+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-				      	<%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
 				  		<% end %>
 					</div>
 		        </div>

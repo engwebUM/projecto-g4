@@ -1,5 +1,5 @@
 module ExpensesHelper
-  def  expenses_pie_chart expenses
+  def  expenses_pie_chart(expenses)
     name_exp = expenses.pluck('user_id', 'amount')
     name_exp.each do |ex|
       ex[0] = User.find(ex[0]).email
@@ -7,7 +7,7 @@ module ExpensesHelper
     draw(name_exp)
   end
 
-  def draw name_exp
+  def draw(name_exp)
     chart = LazyHighCharts::HighChart.new('pie') do |f|
       f.chart defaultSeriesType: 'pie', margin: [50, 200, 60, 170]
       series = {
