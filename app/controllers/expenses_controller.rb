@@ -1,12 +1,12 @@
 class ExpensesController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
-  helper  SmartListing::Helper
+  helper SmartListing::Helper
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
-   
+
   def index
     expenses_scope = Expense.all
     expenses_scope = expenses_scope.joinuser(params[:filter]) if params[:filter]
-    @expenses = smart_listing_create :expenses, expenses_scope, partial: "expenses/expense", page_sizes: [5, 7, 13, 26]
+    @expenses = smart_listing_create :expenses, expenses_scope, partial: 'expenses/expense', page_sizes: [5, 7, 13, 26]
   end
 
   def show

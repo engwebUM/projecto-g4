@@ -1,14 +1,13 @@
 class RevenuesController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
-  helper  SmartListing::Helper
+  helper SmartListing::Helper
   before_action :set_revenue, only: [:show, :edit, :update, :destroy]
 
   def index
     revenues_scope = Revenue.all
     revenues_scope = revenues_scope.joinuser(params[:filter]) if params[:filter]
-    @revenues = smart_listing_create :revenues, revenues_scope, partial: "revenues/revenue", page_sizes: [5, 7, 13, 26]
+    @revenues = smart_listing_create :revenues, revenues_scope, partial: 'revenues/revenue', page_sizes: [5, 7, 13, 26]
   end
-
 
   def show
   end

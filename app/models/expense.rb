@@ -8,12 +8,7 @@ class Expense < ActiveRecord::Base
   has_attached_file :document
   validates_attachment_content_type :document, content_type: ['application/pdf', 'image/jpeg', 'image/png']
 
-  scope :like, (lambda do |param| 
-  	where("description like '%#{args}%' OR amount like '%#{args}%' OR created_at like '%#{args}%'")
+  scope :joinuser, (lambda do |param|
+    joins(:user).where("email like '%#{param}%'")
   end)
-
-  scope :joinuser, (lambda do |param| 
-  	joins(:user).where("email like '%#{args}%'")	
-  end)
-  
 end
