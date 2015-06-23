@@ -1,23 +1,24 @@
 <div class="header-content">
-<%= link_to 'New Revenue', new_revenue_path %>
+  <%= link_to 'New Revenue', new_revenue_path %>
 
-<p id='notice'><%= notice %></p>
+  <p id='notice'><%= notice %></p>
 
-<% if (@revenues.count >0 ) %>
-<h1>Listing Revenues</h1>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Date</th>
-      <th>User</th>
-      <th>Amount</th>
-      <th colspan='1'></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render partial: 'revenue' %>
-  </tbody>
-</table>
-<% end %>
+  <% if (@revenues.count >0 ) %>
+    <h1>Listing Revenues</h1>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>User</th>
+          <th>Amount</th>
+          <th colspan='1'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'revenue' %>
+      </tbody>
+    </table>
+  <% end %>
+  
 </div>
