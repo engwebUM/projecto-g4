@@ -3,12 +3,27 @@ module StatsHelper
     chart_data1 = expenses_by_user
     chart_data2 = revenues_by_user
     category_exp_rev = exp_rev_by_category
-
+    @chart0 = draw_total
     @chart1 = draw_pie(chart_data1, 'Expenses by User')
     @chart2 = draw_pie(chart_data2, 'Revenues by User')
     @chart3 = draw_combination(category_exp_rev)
     @chart4 = draw_two_bar(category_exp_rev)
   end
+  
+  def draw_total
+    total_expenses = Expense.all.sum(:amount)
+    total_revenues = Revenue.all.sum(:amount)
+    chart = LazyHighCharts::HighChart.new('column') do |f|
+      f.chart defaultSeriesType: 'column', margin: [50, 200, 60, 170]
+      series = { type: 'column', name: 'Total Expenses and Revenues', data: [total_expenses,total_revenues] }
+      f.series(series)
+      f.options[:title][:text] = 'Total Expenses and Revenues'
+      f.legend(layout: 'vertical', style: { left: 'auto', bottom: 'auto', right: '50px', top: '100px' })
+      f.plot_options(pie: { allowPointSelect: true, cursor: 'pointer', dataLabels: { enabled: true, color: 'black', style: { font: '13px Trebuchet MS, Verdana, sans-serif' } } })
+    end
+    chart
+  end
+
 
   def expenses_by_user
     chart_data1 = Expense.all.group(:user_id).sum(:amount).to_a
