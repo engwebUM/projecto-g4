@@ -1,5 +1,4 @@
 class ExpensesController < ApplicationController
-  include ExpensesHelper
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
   def index

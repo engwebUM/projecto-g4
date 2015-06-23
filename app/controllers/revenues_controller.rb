@@ -1,5 +1,4 @@
 class RevenuesController < ApplicationController
-  include RevenuesHelper
   before_action :set_revenue, only: [:show, :edit, :update, :destroy]
 
   def index
