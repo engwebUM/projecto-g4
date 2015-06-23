@@ -88,7 +88,7 @@ module StatsHelper
 
   def two_bar_options(f)
     f.title(text: 'Expenses and Revenues by Category')
-    f.options[:xAxis][:categories] = %w(Exp Rev)
+    f.options[:xAxis][:categories] = %w(Expenses Revenues)
   end
 
   def two_bar_series(f, name, data)
