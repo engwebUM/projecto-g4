@@ -44,13 +44,13 @@ module StatsHelper
   end
 
   def exp_rev_by_category
-    aux1 = Expense.all.group(:category_id).sum(:amount)
-    aux2 = Revenue.all.group(:category_id).sum(:amount)
-    keys = [aux1, aux2].flat_map(&:keys).uniq
+    category_exp = Expense.all.group(:category_id).sum(:amount)
+    category_rev = Revenue.all.group(:category_id).sum(:amount)
+    keys = [category_exp, category_rev].flat_map(&:keys).uniq
     novo = (keys.map do |k|
       { Category.find(k).name => [
-        {  value1: aux1[k] || 0  },
-        {  value2: aux2[k] || 0  }] }
+        {  value1: category_exp[k] || 0  },
+        {  value2: category_rev[k] || 0  }] }
     end)
     novo
   end
