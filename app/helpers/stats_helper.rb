@@ -1,13 +1,13 @@
 module StatsHelper
   def create_charts
-    chart_data1 = expenses_by_user
-    chart_data2 = revenues_by_user
+    user_expenses = expenses_by_user
+    user_revenues = revenues_by_user
     category_exp_rev = exp_rev_by_category
-    @chart0 = draw_total
-    @chart1 = draw_pie(chart_data1, 'Expenses by User')
-    @chart2 = draw_pie(chart_data2, 'Revenues by User')
-    @chart3 = draw_combination(category_exp_rev)
-    @chart4 = draw_two_bar(category_exp_rev)
+    @balance_chart = draw_total
+    @user_expenses_chart = draw_pie(user_expenses, 'Expenses by User')
+    @user_revenues_chart = draw_pie(user_revenues, 'Revenues by User')
+    @combination_chart = draw_combination(category_exp_rev)
+    @category_balace_chart = draw_two_bar(category_exp_rev)
   end
 
   def draw_total
@@ -28,31 +28,31 @@ module StatsHelper
   end
 
   def expenses_by_user
-    chart_data1 = Expense.all.group(:user_id).sum(:amount).to_a
-    chart_data1.each do |ex|
+    user_expenses = Expense.all.group(:user_id).sum(:amount).to_a
+    user_expenses.each do |ex|
       ex[0] = User.find(ex[0]).email
     end
-    chart_data1
+    user_expenses
   end
 
   def revenues_by_user
-    chart_data2 = Revenue.all.group(:user_id).sum(:amount).to_a
-    chart_data2.each do |ex|
+    user_revenues = Revenue.all.group(:user_id).sum(:amount).to_a
+    user_revenues.each do |ex|
       ex[0] = User.find(ex[0]).email
     end
-    chart_data2
+    user_revenues
   end
 
   def exp_rev_by_category
     category_exp = Expense.all.group(:category_id).sum(:amount)
     category_rev = Revenue.all.group(:category_id).sum(:amount)
     keys = [category_exp, category_rev].flat_map(&:keys).uniq
-    novo = (keys.map do |k|
+    category_exp_rev = (keys.map do |k|
       { Category.find(k).name => [
         {  value1: category_exp[k] || 0  },
         {  value2: category_rev[k] || 0  }] }
     end)
-    novo
+    category_exp_rev
   end
 
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
@@ -61,8 +61,8 @@ module StatsHelper
       combination_options(f, hash_data)
       expenses_list = []
       revenues_list = []
-      id_exp_amount = []
-      id_rev_amount = []
+      cat_id_exp_amount = []
+      cat_id_rev_amount = []
       hash_data.each do |hash|
         element = hash.to_a.first
         key = element[0]
@@ -70,10 +70,10 @@ module StatsHelper
         value2 = element[1][1]
         expenses_list << value1[:value1]
         revenues_list << value2[:value2]
-        id_exp_amount << { name: key, y: value1[:value1] }
-        id_rev_amount << { name: key, y: value2[:value2] }
+        cat_id_exp_amount << { name: key, y: value1[:value1] }
+        cat_id_rev_amount << { name: key, y: value2[:value2] }
       end
-      combination_series(f, expenses_list, revenues_list, id_exp_amount, id_rev_amount)
+      combination_series(f, expenses_list, revenues_list, cat_id_exp_amount, cat_id_rev_amount)
     end
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
@@ -84,11 +84,11 @@ module StatsHelper
     f.labels(items: [html: 'Expenses and Revenues by Category', style: { left: '20px', top: '0px', color: 'black' }])
   end
 
-  def combination_series(f, expenses_list, revenues_list, id_exp_amount, id_rev_amount)
+  def combination_series(f, expenses_list, revenues_list, cat_id_exp_amount, cat_id_rev_amount)
     f.series(type: 'column', name: 'Expenses', data: expenses_list)
     f.series(type: 'column', name: 'Revenues', data: revenues_list)
-    f.series(type: 'pie', name: 'Total Expenses', data: id_exp_amount, center: [25, 50], size: 100, showInLegend: false, dataLabels: { enabled: false })
-    f.series(type: 'pie', name: 'Total Revenues', data: id_rev_amount, center: [175, 50], size: 100, showInLegend: false, dataLabels: { enabled: false })
+    f.series(type: 'pie', name: 'Total Expenses', data: cat_id_exp_amount, center: [25, 50], size: 100, showInLegend: false, dataLabels: { enabled: false })
+    f.series(type: 'pie', name: 'Total Revenues', data: cat_id_rev_amount, center: [175, 50], size: 100, showInLegend: false, dataLabels: { enabled: false })
   end
 
   def draw_two_bar(hash_data)
@@ -97,8 +97,8 @@ module StatsHelper
       hash_data.each do |hash|
         hash_element = hash.to_a
         element = hash_element[0]
-        value_value = element[1]
-        two_bar_series(f, element[0], [value_value[0][:value1], value_value[1][:value2]])
+        element_value = element[1]
+        two_bar_series(f, element[0], [element_value[0][:value1], element_value[1][:value2]])
       end
     end
   end

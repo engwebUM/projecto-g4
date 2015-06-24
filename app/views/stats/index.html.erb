@@ -16,13 +16,13 @@
 		    <div class="tab-content">
 		        <div id="totalExpensesRevenues" class="tab-pane fade in active">
 		            <div class="container">
-				 		<%= high_chart("my_id0", @chart0) do |c| %>
+				 		<%= high_chart("my_id0", @balance_chart) do |c| %>
 				  		<% end %>
 					</div>
 		        </div>
 		        <div id="userExpenses" class="tab-pane fade">
 		        	<div class="container">
-				    	<%= high_chart("my_id1", @chart1) do |c| %>
+				    	<%= high_chart("my_id1", @user_expenses_chart) do |c| %>
 				    	<%= raw "options.tooltip.formatter = function() {return '<b> user: '+ this.point.name +'</b>: '+ this.y +' %';}"  %>
 				      	<%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
 				  		<% end %>
@@ -30,7 +30,7 @@
 		        </div>
 		        <div id="userRevenues" class="tab-pane fade">
 		        	<div class="container">
-				    	<%= high_chart("my_id2", @chart2) do |c| %>
+				    	<%= high_chart("my_id2", @user_revenues_chart) do |c| %>
 				        <%= raw "options.tooltip.formatter = function() {return '<b> user: '+ this.point.name +'</b>: '+ this.y +' %';}"  %>
 				        <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
 				  		<% end %>
@@ -38,21 +38,21 @@
 		        </div>
 		        <div id="categorieExpenses" class="tab-pane fade">
 		        	<div class="container">
-				    	<%= high_chart("my_id3", @chart3) do |c| %>
+				    	<%= high_chart("my_id3", @combination_chart) do |c| %>
 				  		<% end %>
 					</div>
 		        </div>
 
 		        <div id="combination" class="tab-pane fade">
 		        	<div class="container">
-				    	<%= high_chart("my_id4", @chart4) do |c| %>
+				    	<%= high_chart("my_id4", @category_balace_chart) do |c| %>
 				  		<% end %>
 					</div>
 		        </div>
 			</div>
 	    </div>
 	</div>
-			
+
 </div>
 
 
