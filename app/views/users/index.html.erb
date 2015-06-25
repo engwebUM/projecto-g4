@@ -1,0 +1,24 @@
+<div class="col-md-8 col-md-offset-2">
+  <h2>Users</h2>
+      <%= form_for(User.new, url: user_invitation_path, html: { class: 'form-inline' }) do |f| %>
+        <%= f.text_field :email, placeholder: 'Email', label: false %>
+        <%= f.submit 'Invite User', class: 'btn-primary' %>
+      <% end %>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.email %></td>
+              <td><%= user_status(user) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>

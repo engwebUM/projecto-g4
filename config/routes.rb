@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   root :to => "home#index"
-
+   resources :users, only: :index
   resources :categories
   resources :expenses
   resources :revenues
