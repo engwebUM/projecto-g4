@@ -16,12 +16,9 @@
       <ul class='nav navbar-nav navbar-color navbar-right'>
         <li>
           <%= link_to  destroy_user_session_path, method: :delete do %>
-            <%= current_user.email %>
+            <%= current_user.name %>
             <span title='Logout' class='glyphicon glyphicon-log-out'></span>
           <% end %>
-        </li>
-        <li>
-          <%= link_to 'Edit profile', edit_user_registration_path %>
         </li>
       </ul>
     </div>
