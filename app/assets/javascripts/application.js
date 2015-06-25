@@ -19,3 +19,5 @@
 //= require highcharts/highcharts                                                           
 //= require highcharts/highcharts-more
 //= require highcharts/modules/exporting
+//= require turbolinks
+//= require bootstrap.min

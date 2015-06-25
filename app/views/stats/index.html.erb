@@ -23,14 +23,12 @@
 		        <div id="userExpenses" class="tab-pane fade">
 		        	<div class="container">
 				    	<%= high_chart("my_id1", @user_expenses_chart) do |c| %>
-				    	
 				  		<% end %>
 					</div>   
 		        </div>
 		        <div id="userRevenues" class="tab-pane fade">
 		        	<div class="container">
 				    	<%= high_chart("my_id2", @user_revenues_chart) do |c| %>
-				        
 				  		<% end %>
 					</div>   
 		        </div>
@@ -54,17 +52,13 @@
 </div>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
     $("#myTab a").click(function(e){
     	e.preventDefault();
     	$(this).tab('show');
     });
-    
 });
-$(window).resize();
 </script>
 <style type="text/css">
 	.bs-example{
