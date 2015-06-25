@@ -28,19 +28,11 @@ module StatsHelper
   end
 
   def expenses_by_user
-    user_expenses = Expense.all.group(:user_id).sum(:amount).to_a
-    user_expenses.each do |ex|
-      ex[0] = User.find(ex[0]).email
-    end
-    user_expenses
+    Expense.joins(:user).group(:email).sum(:amount).to_a
   end
 
   def revenues_by_user
-    user_revenues = Revenue.all.group(:user_id).sum(:amount).to_a
-    user_revenues.each do |ex|
-      ex[0] = User.find(ex[0]).email
-    end
-    user_revenues
+    Revenue.joins(:user).group(:email).sum(:amount).to_a
   end
 
   def exp_rev_by_category
