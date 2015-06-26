@@ -13,4 +13,4 @@ def adduser(name, email, password)
   User.accept_invitation!(invitation_token: token, password: password, password_confirmation: password, name: name)
 end
 
-adduser("admi3n", "admi3n@admin.com", "12345678")
+adduser("admin", "admin@admin.com", "12345678")
