@@ -1,5 +1,4 @@
 class StatsController < ApplicationController
-
   def index
     @expenses = Expense.all
     @revenues = Revenue.all
