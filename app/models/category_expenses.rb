@@ -36,5 +36,4 @@ class CategoryExpenses
   def two_bar_series(f, name, data)
     f.series(type: 'column', name: name, data: data)
   end
-
 end

@@ -13,12 +13,12 @@ class Chart
     catExpRev: CategoryExpenses
   }
   private_constant :CHARTS
-  
+
   def initialize(expenses, revenues)
     @expenses = expenses
     @revenues = revenues
   end
-  
+
   def data_for(chart_identifier)
     CHARTS[chart_identifier].new.data(@expenses, @revenues)
   end

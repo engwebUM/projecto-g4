@@ -51,5 +51,4 @@ class CombinationCategoryExpRev
     f.series(type: 'pie', name: 'Total Expenses', data: cat_id_exp_amount, center: [25, 50], size: 100, showInLegend: false, dataLabels: { enabled: false })
     f.series(type: 'pie', name: 'Total Revenues', data: cat_id_rev_amount, center: [175, 50], size: 100, showInLegend: false, dataLabels: { enabled: false })
   end
-
 end

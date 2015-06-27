@@ -1,5 +1,5 @@
 class UserExpenses
-  def data(expenses, revenues)
+  def data(expenses, _)
     user_expenses = expenses.joins(:user).group(:email).sum(:amount).to_a
     draw_pie(user_expenses)
   end
