@@ -1,5 +1,4 @@
 class StatsController < ApplicationController
-  include StatsHelper
 
   def index
     @expenses = Expense.all
