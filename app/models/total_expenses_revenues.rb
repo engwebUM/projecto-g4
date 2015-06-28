@@ -1,4 +1,6 @@
 class TotalExpensesRevenues
+  include StatsHelper
+  
   def data(expenses, revenues)
     total_expenses = expenses.all.sum(:amount)
     total_revenues = revenues.all.sum(:amount)
