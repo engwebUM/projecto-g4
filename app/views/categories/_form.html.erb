@@ -1,8 +1,8 @@
 <%= form_for(@category) do |f| %>
 <p>
   <%= f.label :name, 'New Category' %>
-  <%= f.text_field :name %>
-  <%= f.submit 'Add Category' %>
+  <%= f.text_field :name, :class => "form-control", :class => "new_category_field" %>
+  <%= f.submit 'Add Category', :class => "form-control btn btn-login reset_pass_button" %>
 </p>
 
 <% end %>

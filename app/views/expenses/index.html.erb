@@ -1,27 +1,24 @@
-<%= link_to 'New Expense', new_expense_path %>
+<div class="header-content">
+  <%= link_to 'New Expense', new_expense_path %>
 
-<p id='notice'><%= notice %></p>
+  <p id='notice'><%= notice %></p>
 
-<% if (@expenses.count >0 ) %>
-<h1>Listing Expenses</h1>
-<table class='table'>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Date</th>
-      <th>User</th>
-      <th>Amount</th>
-      <th colspan='1'></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render partial: 'expense' %>
-  </tbody>
-</table>
-
-  <%= high_chart("my_id4", @chart) do |c| %>
-      <%= raw "options.tooltip.formatter = function() {return '<b> user: '+ this.point.name +'</b>: '+ this.y +' %';}"  %>
-      <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
+  <% if (@expenses.count >0 ) %>
+    <h1>Listing Expenses</h1>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>User</th>
+          <th>Amount</th>
+          <th colspan='1'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'expense' %>
+      </tbody>
+    </table>
   <% end %>
-
-<% end %>
+  
+</div>

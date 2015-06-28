@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'stats/index'
+
   get 'sessions/destroy'
 
   get 'home/index'
@@ -15,10 +17,11 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   root :to => "home#index"
-   resources :users, only: :index
+  resources :users, only: :index
   resources :categories
   resources :expenses
   resources :revenues
+  resources :stats
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
