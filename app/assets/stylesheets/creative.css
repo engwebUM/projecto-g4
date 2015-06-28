@@ -609,11 +609,16 @@ td{
 }
 
 .tab-content > .tab-pane {
-    display: block !important;
+    display: block;
     height: 0;
+    width: 110% ; 
     overflow-y: hidden;
 }
 
 .tab-content > .active {
     height: auto;
+}
+
+.nav-tabs{
+    margin-left: 100px !important;
 }
