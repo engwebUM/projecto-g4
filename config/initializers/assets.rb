@@ -9,13 +9,3 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-
-Rails.application.config.assets.precompile += %w( animate.min.css )
-Rails.application.config.assets.precompile += %w( creative.css )
-
-
-Rails.application.config.assets.precompile += %w( jquery.js )
-Rails.application.config.assets.precompile += %w( jqueryeasing.min.js )
-Rails.application.config.assets.precompile += %w( jquery.fittext.js )
-Rails.application.config.assets.precompile += %w( wow.min.js )
-Rails.application.config.assets.precompile += %w( creative.js )
