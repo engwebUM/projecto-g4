@@ -43,7 +43,7 @@ end
 
 # Autentication
 gem 'devise'
-
+gem 'devise_invitable'
 gem "codeclimate-test-reporter", group: :test
 gem 'coffee-script-source', '~> 1.8.0'
 gem 'tzinfo-data', platforms: [:x64_mingw, :mingw, :mswin]

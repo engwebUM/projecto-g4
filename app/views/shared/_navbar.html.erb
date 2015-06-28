@@ -10,29 +10,27 @@
             </button>
             <!--<a class="navbar-brand page-scroll" href="#page-top">Piggy Bank</a>-->
         </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class='nav navbar-nav navbar-color'>
-                    <li>
-                        <%= link_to  destroy_user_session_path, method: :delete do %>
-                            <%= current_user.email %>
-                            <span title='Logout' class='glyphicon glyphicon-log-out'></span>
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to 'Edit profile', edit_user_registration_path %>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">Home</a></li>
-                    <li><%= link_to 'Categories', categories_path %></li>
-					<li><%= link_to 'Expenses', expenses_path %></li>
-					<li><%= link_to 'Revenues', revenues_path %></li>
-                    <li><%= link_to 'Stats', stats_path %></li>
-                </ul>
-				
-            </div>
-            <!-- /.navbar-collapse -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Home</a></li>
+                <li><%= link_to 'Users', users_path %></li>
+                <li><%= link_to 'Categories', categories_path %></li>
+				        <li><%= link_to 'Expenses', expenses_path %></li>
+				        <li><%= link_to 'Revenues', revenues_path %></li>
+                <li><%= link_to 'Stats', stats_path %></li>
+            </ul>
+			<ul class='nav navbar-nav navbar-color navbar-right'>
+				<li>
+					<%= link_to  destroy_user_session_path, method: :delete do %>
+				        <%= current_user.email %>
+					    <span title='Logout' class='glyphicon glyphicon-log-out'></span>
+					<% end %>
+				</li>
+        <li>
+            <%= link_to 'Edit profile', edit_user_registration_path %>
+        </li>
+			</ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
