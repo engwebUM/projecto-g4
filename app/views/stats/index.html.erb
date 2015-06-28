@@ -1,54 +1,60 @@
-<div class='header-content'>
+<section>
+<div class="container">
 
-	<p id='notice'><%= notice %></p>
-	
-	<h1>Statistics</h1>
-	<% unless @expenses == [] && @revenues == [] %>
-		<div class="container">
-			<ul class="nav nav-tabs" id="myTab">
-		        <li class="active"><a href="#totalExpensesRevenues">Total of Expenses and Revenues</a></li>
-		        <li><a href="#userExpenses">User Expenses</a></li>
-		        <li><a href="#userRevenues">User Revenues</a></li>
-		        <li><a href="#categorieExpenses">Combination Chart</a></li>
-		        <li><a href="#combination">Category Expenses and Revenues</a></li>
-		    </ul>
-		    <div class="tab-content">
-		        <div id="totalExpensesRevenues" class="tab-pane fade in active">
-		            <div class="container">
-				 		<%= high_chart("my_id0", @chart.data_for(:totalExpRev)) do |c| %>
-				  		<% end %>
-					</div>
-		        </div>
-		        <div id="userExpenses" class="tab-pane fade">
-		        	<div class="container">
-				    	<%= high_chart("my_id1", @chart.data_for(:userExp)) do |c| %>
-				  		<% end %>
-					</div>   
-		        </div>
-		        <div id="userRevenues" class="tab-pane fade">
-		        	<div class="container">
-				    	<%= high_chart("my_id2", @chart.data_for(:userRev)) do |c| %>
-				  		<% end %>
-					</div>   
-		        </div>
-		        <div id="categorieExpenses" class="tab-pane fade">
-		        	<div class="container">
-				    	<%= high_chart("my_id3", @chart.data_for(:catExpRev)) do |c| %>
-				  		<% end %>
-					</div>
-		        </div>
-		        <div id="combination" class="tab-pane fade">
-		        	<div class="container">
-				    	<%= high_chart("my_id4", @chart.data_for(:combCatExpRev)) do |c| %>
-				  		<% end %>
-					</div>
-		        </div>
-			</div>
-		</div>
-	<% else %>
-	    <p class="warning">No records!</p>
-	<% end %>
+    <p id='notice'><%= notice %></p>
+    
+    <h1>Statistics</h1>
+
+    <% unless @expense == nil && @revenues == nil %>
+        <div class="container">
+            <ul class="nav nav-tabs" id="myTab">
+                <li class="active"><a href="#totalExpensesRevenues">Total of Expenses and Revenues</a></li>
+                <li><a href="#userExpenses">User Expenses</a></li>
+                <li><a href="#userRevenues">User Revenues</a></li>
+                <li><a href="#categorieExpenses">Combination Chart</a></li>
+                <li><a href="#combination">Category Expenses and Revenues</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="totalExpensesRevenues" class="tab-pane fade in active">
+                    <div class="container">
+                         <%= high_chart("my_id0", @chart.data_for(:totalExpRev)) do |c| %>
+                          <% end %>
+                    </div>
+                </div>
+                <div id="userExpenses" class="tab-pane fade">
+                    <div class="container">
+                        <%= high_chart("my_id1", @chart.data_for(:userExp)) do |c| %>
+                          <% end %>
+                    </div>   
+                </div>
+                <div id="userRevenues" class="tab-pane fade">
+                    <div class="container">
+                        <%= high_chart("my_id2", @chart.data_for(:userRev)) do |c| %>
+                          <% end %>
+                    </div>   
+                </div>
+                <div id="categorieExpenses" class="tab-pane fade">
+                    <div class="container">
+                        <%= high_chart("my_id3", @chart.data_for(:catExpRev)) do |c| %>
+                          <% end %>
+                    </div>
+                </div>
+                <div id="combination" class="tab-pane fade">
+                    <div class="container">
+                        <%= high_chart("my_id4", @chart.data_for(:combCatExpRev)) do |c| %>
+                          <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% else %>
+        <p class="warning">No records!</p>
+    <% end %>
 </div>
+</section>
+
+
+
 
 
 <script type="text/javascript">
