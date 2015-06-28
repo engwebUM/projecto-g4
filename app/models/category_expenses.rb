@@ -1,6 +1,6 @@
 class CategoryExpenses
   include StatsHelper
-  
+
   def data(expenses, revenues)
     category_exp_rev = exp_rev_by_category(expenses, revenues)
     draw_two_bar(category_exp_rev)
