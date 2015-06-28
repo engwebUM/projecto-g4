@@ -21,14 +21,7 @@ class RevenuesController < ApplicationController
 
   def create
     @revenue = Revenue.new(revenue_params)
-    @revenue.user_id = current_user.id
-    if @revenue.save
-      flash[:notice] = 'Revenue was successfully created'
-      redirect_to @revenue
-    else
-      redirect_to :new
-      msg_error
-    end
+    create_rev_exp(@revenue)
   end
 
   def update
@@ -53,9 +46,7 @@ class RevenuesController < ApplicationController
 
   private
 
-  def msg_error
-    flash[:error] = 'Please try again!'
-  end
+
 
   def set_revenue
     @revenue = Revenue.find(params[:id])

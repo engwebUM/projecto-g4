@@ -21,14 +21,7 @@ class ExpensesController < ApplicationController
 
   def create
     @expense = Expense.new(expense_params)
-    @expense.user_id = current_user.id
-    if @expense.save
-      flash[:notice] = 'Expense was successfully created'
-      redirect_to @expense
-    else
-      redirect_to :new
-      msg_error
-    end
+    create_rev_exp(@expense)
   end
 
   def update
