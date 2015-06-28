@@ -3,8 +3,7 @@
 	<p id='notice'><%= notice %></p>
 	
 	<h1>Statistics</h1>
-
-	<% unless @chart.nil? %>
+	<% unless @expenses == [] && @revenues == [] %>
 		<div class="container">
 			<ul class="nav nav-tabs" id="myTab">
 		        <li class="active"><a href="#totalExpensesRevenues">Total of Expenses and Revenues</a></li>
