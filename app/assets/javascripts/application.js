@@ -16,8 +16,9 @@
 //= require jquery-ui
 //= require_tree .
 //= require highcharts/highstock
-//= require highcharts/highcharts                                                           
+//= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/modules/exporting
 //= require turbolinks
+//= require smart_listing
 //= require bootstrap.min

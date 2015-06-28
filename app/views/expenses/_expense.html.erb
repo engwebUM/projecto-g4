@@ -1,13 +1,11 @@
 <% unless smart_listing.empty? %>
   <table class="table">
     <thead>
-      <tr>
         <th class="col-md-2"><%= smart_listing.sortable "ID", :id %></th>
         <th class="col-md-3"><%= smart_listing.sortable "Date", :date %></th>
-        <th class="col-md-4"><%= smart_listing.sortable "Email", :email %></th>
+        <th class="col-md-4"><%= smart_listing.sortable "Name", :name %></th>
         <th class="col-md-3"><%= smart_listing.sortable "Amount", :amount %></th>
         <th></th>
-      </tr>
     </thead>
     <tbody>
       <% smart_listing.collection.each do |expense| %>
@@ -19,7 +17,7 @@
             <%= expense.date %>
           </td>
           <td>
-            <%= expense.user.email %>
+            <%= expense.user.name %>
           </td>
           <td>
             <%= expense.amount %>
