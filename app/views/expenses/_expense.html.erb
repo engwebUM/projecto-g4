@@ -1,19 +1,39 @@
-<% @expenses.each do |e| %>
-  <tr>
-    <td>
-      <%= e.id %>
-    </td>
-    <td>
-      <%= e.date %>
-    </td>
-    <td>
-      <%= e.user.email %>
-    </td>
-    <td>
-      <%= e.amount %>
-    </td>
-    <td>
-      <%= link_to 'Show', e %>
-    </td>
-  </tr>
+<% unless smart_listing.empty? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-md-2"><%= smart_listing.sortable "ID", :id %></th>
+        <th class="col-md-3"><%= smart_listing.sortable "Date", :date %></th>
+        <th class="col-md-4"><%= smart_listing.sortable "Email", :email %></th>
+        <th class="col-md-3"><%= smart_listing.sortable "Amount", :amount %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% smart_listing.collection.each do |expense| %>
+        <tr class="editable">
+          <td>
+            <%= expense.id %>
+          </td>
+          <td>
+            <%= expense.date %>
+          </td>
+          <td>
+            <%= expense.user.email %>
+          </td>
+          <td>
+            <%= expense.amount %>
+          </td>
+          <td>
+            <%= link_to 'Show', expense %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= smart_listing.paginate %>
+  <br><br>
+  <%= smart_listing.pagination_per_page_links %>
+<% else %>
+  <p class="warning">No records!</p>
 <% end %>

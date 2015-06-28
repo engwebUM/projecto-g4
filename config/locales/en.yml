@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  errors:
+    messages:
+      not_saved:
+        one: Could not validate 1 field
+        other: "Could not validate %{count} fields for the %{resource}"

@@ -4,16 +4,14 @@
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<meta name="description" content="">
-			<meta name="author" content="">
+			<meta name="description" content="Web app to manage expenses and revenues on Ruby conference">
+			<meta name="author" content="EngWeb UMinho - Group 4">
 			<title>Piggy Bank</title>
 
 			<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 			<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 			<%= csrf_meta_tags %>
 			<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-			<%= stylesheet_link_tag    'animate.min', media: 'all', 'data-turbolinks-track' => true %>
-			<%= stylesheet_link_tag    'creative', media: 'all', 'data-turbolinks-track' => true %>
 
 			<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 			<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,9 +29,9 @@
 				<%= render partial: 'shared/guestnavbar' %>	
 			<% end %>
 
-			<header>			
-						<%= yield %>
-			</header>
+						
+			<%= yield %>
+			
 
 	</body>				
 </html>
