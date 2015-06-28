@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  include SmartListing::Helper::ControllerExtensions
+  helper SmartListing::Helper
+
   protect_from_forgery with: :null_session
   before_action :devise_configure_permitted_parameters, if: :devise_controller?
 
