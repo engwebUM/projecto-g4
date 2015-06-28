@@ -1,30 +1,22 @@
 <% unless smart_listing.empty? %>
   <table class="table">
     <thead>
-        <th class="col-md-2"><%= smart_listing.sortable "ID", :id %></th>
-        <th class="col-md-3"><%= smart_listing.sortable "Date", :date %></th>
-        <th class="col-md-4"><%= smart_listing.sortable "Name", :name %></th>
-        <th class="col-md-3"><%= smart_listing.sortable "Amount", :amount %></th>
-        <th></th>
+        <th class="col-md-1"><%= smart_listing.sortable "ID", :id %></th>
+        <th class="col-md-2"><%= smart_listing.sortable "Date", :date %></th>
+        <th class="col-md-3"><%= smart_listing.sortable "Category", :category %></th>
+        <th class="col-md-3"><%= smart_listing.sortable "User", :user %></th>
+        <th class="col-md-1"><%= smart_listing.sortable "Amount", :amount %></th>
+        <th class="col-md-2"></th>
     </thead>
     <tbody>
       <% smart_listing.collection.each do |expense| %>
         <tr class="editable">
-          <td>
-            <%= expense.id %>
-          </td>
-          <td>
-            <%= expense.date %>
-          </td>
-          <td>
-            <%= expense.user.name %>
-          </td>
-          <td>
-            <%= expense.amount %>
-          </td>
-          <td>
-            <%= link_to 'Show', expense %>
-          </td>
+          <td><%= expense.id %></td>
+          <td><%= expense.date %></td>
+          <td><%= expense.category.name %></td>
+          <td><%= expense.user.name %></td>
+          <td><%= expense.amount %></td>
+          <td><%= link_to 'Show', expense %></td>
         </tr>
       <% end %>
     </tbody>
