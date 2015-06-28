@@ -3,8 +3,7 @@ class RevenuesController < ApplicationController
 
   def index
     revenues_scope = Revenue.all
-    revenues_scope = revenues_scope.joinuser.like(params[:filter]) if params[:filter]
-    @revenues = smart_listing_create :revenues, revenues_scope, partial: 'revenues/revenue', page_sizes: [5, 7, 13, 26]
+    @revenues = smart_listing_create :revenues, list_create(revenues_scope, params[:filter]), partial: 'revenues/revenue', page_sizes: [5, 7, 13, 26]
   end
 
   def show
@@ -21,20 +20,13 @@ class RevenuesController < ApplicationController
 
   def create
     @revenue = Revenue.new(revenue_params)
-    @revenue.user_id = current_user.id
-    if @revenue.save
-      flash[:notice] = 'Revenue was successfully created'
-      redirect_to @revenue
-    else
-      redirect_to :new
-      msg_error
-    end
+    create_rev_exp(@revenue)
   end
 
   def update
     if @revenue.update(revenue_params)
       render :show
-      flash[:notice] = 'Revenue was successfully updated'
+      msg_success
     else
       render :edit
       msg_error
@@ -43,7 +35,7 @@ class RevenuesController < ApplicationController
 
   def destroy
     if @revenue.destroy
-      flash[:notice] = 'Revenue was successfully destroyed'
+      msg_success
       redirect_to revenues_url
     else
       redirect_to :back
@@ -52,10 +44,6 @@ class RevenuesController < ApplicationController
   end
 
   private
-
-  def msg_error
-    flash[:error] = 'Please try again!'
-  end
 
   def set_revenue
     @revenue = Revenue.find(params[:id])
