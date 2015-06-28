@@ -1,0 +1,9 @@
+.tab-content > .tab-pane {
+    display: block !important;
+    height: 0;
+    overflow-y: hidden;
+}
+
+.tab-content > .active {
+    height: auto;
+}
