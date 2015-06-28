@@ -6,7 +6,7 @@ module StatsHelper
       f.series(series)
       f.options[:title][:text] = title
       f.legend(layout: 'vertical', style: { left: 'auto', bottom: 'auto', right: '50px', top: '100px' })
-      f.plot_options(pie: { allowPointSelect: true, cursor: 'pointer', dataLabels: { enabled: true, color: 'black', style: { font: '13px Trebuchet MS, Verdana, sans-serif' } } })
+      f.plot
     end
   end
 
@@ -20,5 +20,9 @@ module StatsHelper
         {  value2: category_rev[k] || 0  }] }
     end)
     category_exp_rev
+  end
+
+  def plot
+    plot_options(pie: { allowPointSelect: true, cursor: 'pointer', dataLabels: { enabled: true, color: 'black', style: { font: '13px Trebuchet MS, Verdana, sans-serif' } } })
   end
 end

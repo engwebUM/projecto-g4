@@ -12,7 +12,7 @@ class TotalExpensesRevenues
       f.series(series)
       f.options[:title][:text] = 'Total Expenses and Revenues'
       f.legend(layout: 'vertical', style: { left: 'auto', bottom: 'auto', right: '50px', top: '100px' })
-      f.plot_options(pie: { allowPointSelect: true, cursor: 'pointer', dataLabels: { enabled: true, color: 'black', style: { font: '13px Trebuchet MS, Verdana, sans-serif' } } })
+      f.plot
     end
   end
 end
