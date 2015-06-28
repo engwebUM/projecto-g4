@@ -1,12 +1,11 @@
 <section>
 	<div class="container">
-		<%= link_to 'New Expense', new_expense_path, :class => "form-control btn btn-login reset_pass_button" %>
-
 		<p id='notice'><%= notice %></p>
 		<h1><strong>Expenses</strong></h1>
+		<%= link_to 'New Expense', new_expense_path, :class => "form-control btn btn-login reset_pass_button" %>
 		<%= smart_listing_controls_for(:expenses, {class: "form-inline text-right"}) do %>
 		  <div class="form-group filter input-append">
-		    <%= text_field_tag :filter, '', class: "search form-control", placeholder: "Search by Email...", autocomplete: :off %>
+		    <%= text_field_tag :filter, '', class: "search form-control", placeholder: "Search by name...", autocomplete: :off %>
 		  </div>
 		<% end %>
 		<br>
