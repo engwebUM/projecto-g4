@@ -3,8 +3,7 @@ class ExpensesController < ApplicationController
 
   def index
     expenses_scope = Expense.all
-    expenses_scope = expenses_scope.joinuser.like(params[:filter]) if params[:filter]
-    @expenses = smart_listing_create :expenses, expenses_scope, partial: 'expenses/expense', page_sizes: [5, 7, 13, 26]
+    @expenses = smart_listing_create :expenses, list_create(expenses_scope, params[:filter]), partial: 'expenses/expense', page_sizes: [5, 7, 13, 26]
   end
 
   def show
@@ -27,7 +26,7 @@ class ExpensesController < ApplicationController
   def update
     if @expense.update(expense_params)
       render :show
-      flash[:notice] = 'Expense was successfully updated'
+      msg_success
     else
       render :edit
       msg_error
@@ -36,7 +35,7 @@ class ExpensesController < ApplicationController
 
   def destroy
     if @expense.destroy
-      flash[:notice] = 'Expense was successfully destroyed'
+      msg_success
       redirect_to expenses_url
     else
       redirect_to :back
@@ -45,10 +44,6 @@ class ExpensesController < ApplicationController
   end
 
   private
-
-  def msg_error
-    flash[:error] = 'Please try again!'
-  end
 
   def set_expense
     @expense = Expense.find(params[:id])

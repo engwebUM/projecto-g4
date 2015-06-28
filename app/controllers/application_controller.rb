@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_action :devise_configure_permitted_parameters, if: :devise_controller?
 
+  def list_create(resource, param)
+    resource.joinuser.like(param) if resource
+  end
+
   def create_rev_exp(resource)
     resource.user_id = current_user.id
     if resource.save
