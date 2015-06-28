@@ -1,12 +1,15 @@
 <section>
   <div class="container">
-    <h1><strong>Users</strong></h1>
+    <p id="notice"><%= notice %></p>
     <%= form_for(User.new, url: user_invitation_path, html: { class: 'form-inline' }) do |f| %>
+    <p>
       <%= f.label :name, 'New User' %>
       <%= f.text_field :email, :class => "form-control", :class => "new_category_field" %>
       <%= f.submit 'Invite User', :class => "form-control btn btn-login reset_pass_button" %>
+    </p>
     <% end %>
     <br>
+    <h1><strong>Users</strong></h1>
     <table class="table">
       <thead>
         <tr>
