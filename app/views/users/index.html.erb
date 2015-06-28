@@ -1,26 +1,29 @@
-<div>
-  <h2>Users</h2>
-  <%= form_for(User.new, url: user_invitation_path, html: { class: 'form-inline' }) do |f| %>
-    <%= f.text_field :email, placeholder: 'Email' %>
-    <%= f.submit 'Invite User', class: 'btn-primary' %>
-  <% end %>
-  <br>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
+<section>
+  <div class="container">
+    <h1><strong>Users</strong></h1>
+    <%= form_for(User.new, url: user_invitation_path, html: { class: 'form-inline' }) do |f| %>
+      <%= f.label :name, 'New User' %>
+      <%= f.text_field :email, :class => "form-control", :class => "new_category_field" %>
+      <%= f.submit 'Invite User', :class => "form-control btn btn-login reset_pass_button" %>
+    <% end %>
+    <br>
+    <table class="table">
+      <thead>
         <tr>
-          <td><%= user.name %></td>
-          <td><%= user.email %></td>
-          <td><%= user_status(user) %></td>
+          <th class="col-md-2">Username</th>
+          <th class="col-md-2">Email</th>
+          <th class="col-md-2">Status</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr class="editable">
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user_status(user) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
