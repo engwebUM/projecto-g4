@@ -2,10 +2,10 @@
 <div class="container">
 
     <p id='notice'><%= notice %></p>
-    
+
     <h1><strong>Statistics</strong></h1>
     <br>
-    <% unless @expense == nil && @revenues == nil %>
+    <% if (@expenses.exists? || @revenues.exists?) %>
         <div class="container">
             <ul class="nav nav-tabs" id="myTab">
                 <li class="active"><a href="#totalExpensesRevenues"><strong>Total of Expenses and Revenues</strong></a></li>
@@ -25,13 +25,13 @@
                     <div class="container">
                         <%= high_chart("my_id1", @chart.data_for(:userExp)) do |c| %>
                           <% end %>
-                    </div>   
+                    </div>
                 </div>
                 <div id="userRevenues" class="tab-pane fade">
                     <div class="container">
                         <%= high_chart("my_id2", @chart.data_for(:userRev)) do |c| %>
                           <% end %>
-                    </div>   
+                    </div>
                 </div>
                 <div id="categorieExpenses" class="tab-pane fade">
                     <div class="container">
@@ -58,7 +58,7 @@
 
 
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
     $("#myTab a").click(function(e){
     	e.preventDefault();
     	$(this).tab('show');
