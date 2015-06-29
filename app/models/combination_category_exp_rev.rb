@@ -23,8 +23,6 @@ class CombinationCategoryExpRev
     end
   end
 
-  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
-
   def combination_options(f, hash_data)
     f.title(text: 'Expenses and Revenues by Category')
     f.options[:xAxis][:categories] = hash_data.reduce(&:merge).keys
@@ -34,8 +32,8 @@ class CombinationCategoryExpRev
   def combination_series(f, expenses_list, revenues_list, cat_id_exp_amount, cat_id_rev_amount)
     f.series(type: 'column', name: 'Expenses', data: expenses_list)
     f.series(type: 'column', name: 'Revenues', data: revenues_list)
-    f.series(type: 'pie', name: 'Total Expenses', data: cat_id_exp_amount, center: [25, 50], size: 100, showInLegend: false, dataLabels: { enabled: false })
-    f.series(type: 'pie', name: 'Total Revenues', data: cat_id_rev_amount, center: [175, 50], size: 100, showInLegend: false, dataLabels: { enabled: false })
+    serie_comb(f, [25, 50], cat_id_exp_amount, 'Total Expenses')
+    serie_comb(f, [175, 50], cat_id_rev_amount, 'Total Revenues')
   end
 
   private

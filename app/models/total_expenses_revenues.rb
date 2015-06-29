@@ -14,7 +14,7 @@ class TotalExpensesRevenues
       f.series(series)
       f.options[:title][:text] = 'Total Expenses and Revenues'
       f.legend(layout: 'vertical', style: { left: 'auto', bottom: 'auto', right: '50px', top: '100px' })
-      f.plot
+      plot(f)
     end
   end
 end
