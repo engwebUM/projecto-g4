@@ -6,7 +6,7 @@ module StatsHelper
       f.series(series)
       f.options[:title][:text] = title
       f.legend(layout: 'vertical', style: { left: 'auto', bottom: 'auto', right: '50px', top: '100px' })
-      f.plot
+      plot(f)
     end
   end
 
@@ -22,7 +22,11 @@ module StatsHelper
     category_exp_rev
   end
 
-  def plot
-    plot_options(pie: { allowPointSelect: true, cursor: 'pointer', dataLabels: { enabled: true, color: 'black', style: { font: '13px Trebuchet MS, Verdana, sans-serif' } } })
+  def plot(f)
+    f.plot_options(pie: { allowPointSelect: true, cursor: 'pointer', dataLabels: { enabled: true, color: 'black', style: { font: '13px Trebuchet MS, Verdana, sans-serif' } } })
+  end
+
+  def serie_comb(f, value, cat_amount, text)
+    f.series(type: 'pie', name: text, data: cat_amount, center: value, size: 100, showInLegend: false, dataLabels: { enabled: false })
   end
 end
